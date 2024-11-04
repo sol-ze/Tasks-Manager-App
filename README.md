@@ -91,6 +91,6 @@ Responses:
 
 Resourses
 ===================================================
-Knex (for mysql) documentation: https://knexjs.org/guide/query-builder.html#select
-Bootstrap: https://getbootstrap.com/
-Installing libraries: https://www.npmjs.com/
+1. Knex (for mysql) documentation: https://knexjs.org/guide/query-builder.html#select
+2. Bootstrap: https://getbootstrap.com/
+3. Installing libraries: https://www.npmjs.com/
