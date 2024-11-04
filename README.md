@@ -5,9 +5,9 @@ Technologies Used
 ===================================================
 
     Backend: Node.js, Express.js
-    Frontend: React
-    Database: MySQL, MySQL Workbench
-    Tools: Postman
+    Frontend: React, Bootstrap
+    Database: MySQL
+    Tools: Postman, MySQL Workbench, Chrome
     IDE: Visual Studio Code
 	
 	
@@ -88,3 +88,9 @@ Responses:
 * OK 200
 * BAD REQUEST 400: validation error
 
+
+Resourses
+===================================================
+Knex (for mysql) documentation: https://knexjs.org/guide/query-builder.html#select
+Bootstrap: https://getbootstrap.com/
+Installing libraries: https://www.npmjs.com/
