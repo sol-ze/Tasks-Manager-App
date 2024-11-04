@@ -17,11 +17,12 @@ Setup Instructions:
 
 
 1. Setting Up the Database
-	create the scheme and sql tables - run the file: /database/create_db_and_tables.sql
+	create the scheme and sql tables - run the file: /config/create_db_and_tables.sql
 
 
 2. Creating the .env File
 	Create a .env file in the root directory with the following content to ensure sensitive data remains secure:
+
 	**p.s: update the user name, password and mysql port(usually 3306) according to your local mysql
    
 	      DEBUG="lennar-nodejs-home-assignment:*"
