@@ -1,8 +1,5 @@
 # Tasks-Manager-App
 
-Task Manager App
-===================================================
-
 
 Technologies Used
 ===================================================
@@ -40,4 +37,76 @@ Setup Instructions:
 
 API Endpoints
 ===================================================
+
+
+1- POST /api/books/
+
+Description: Inserts a new book
+
+Request: request body:
+
+	{
+	  "title": "Rich Dad Poor Dad",
+	  "author": "Robert T. Kiyosaki",
+	  "ISBN": "9781612681139",
+	  "publisher": "Plata Publishing",
+	  "publication_date": "2022-04-05"
+	}
+
+Responses:
+* OK 200
+* BAD REQUEST 400: validation error
+* INTERNAL SERVER ERROR 500: other exceptions
+
+______________________________________________
+1- GET http://127.0.0.1:3030/api/task/
+
+Description: Get all tasks from the database
+
+Responses:
+OK 200
+A json array of objects of task
+[
+    {
+        "id": 1,
+        "task": "Create a MySQL database for the home assignment",
+        "status": 0,
+        "creation_time": "2024-11-04T13:15:29.000Z"
+    },
+    {
+        "id": 2,
+        "task": "Create REST Api",
+        "status": 0,
+        "creation_time": "2024-11-04T13:48:35.000Z"
+    },
+    {
+        "id": 4,
+        "task": "Add validations to the inputs",
+        "status": 0,
+        "creation_time": "2024-11-04T14:16:52.000Z"
+    }
+]
+
+______________________________________________
+2- POST http://127.0.0.1:3030/api/task/
+
+Description: Add a new task to the database
+
+Request:body - json
+{
+    "task":"task description"
+}
+Responses: 
+* OK 200
+* 500: validation error
+* 
+______________________________________________
+3- DELETE http://127.0.0.1:3030/api/task/:id
+
+Description: Delete a task by id
+
+Request: id param in the url
+Responses: 
+* OK 200
+* BAD REQUEST 400: validation error
 
