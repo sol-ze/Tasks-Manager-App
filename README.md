@@ -21,7 +21,7 @@ Setup Instructions:
 
 
 2. Creating the .env File
-	2.1. Create a .env file in the /digital-library directory with the following content to ensure sensitive data remains secure:
+	2.1. Create a .env file in the root directory with the following content to ensure sensitive data remains secure:
 	
    
       DEBUG="lennar-nodejs-home-assignment:*"
@@ -37,28 +37,6 @@ Setup Instructions:
 
 API Endpoints
 ===================================================
-
-
-1- POST /api/books/
-
-Description: Inserts a new book
-
-Request: request body:
-
-	{
-	  "title": "Rich Dad Poor Dad",
-	  "author": "Robert T. Kiyosaki",
-	  "ISBN": "9781612681139",
-	  "publisher": "Plata Publishing",
-	  "publication_date": "2022-04-05"
-	}
-
-Responses:
-* OK 200
-* BAD REQUEST 400: validation error
-* INTERNAL SERVER ERROR 500: other exceptions
-
-______________________________________________
 1- GET http://127.0.0.1:3030/api/task/
 
 Description: Get all tasks from the database
