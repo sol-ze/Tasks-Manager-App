@@ -3,6 +3,8 @@ const validate = require("./validation");
 
 const taskSchema = Joi.object({
   task: Joi.string().min(5).max(250).required(),
+  id: Joi.number().min(1).max(1000000),
+  creation_time: Joi.date().iso(),
 });
 
 const taskIdSchema = Joi.object({

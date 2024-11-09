@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const DateUtils = require("../../utils/DateUtils");
 const taskModel = require("../../database/task.model");
 const ResponseError = require("../../utils//RsponseError");
 const taskValidation = require("../../validation/task.validation");
@@ -8,7 +9,15 @@ const taskValidation = require("../../validation/task.validation");
 router.get("/", async (req, res, next) => {
   try {
     const tasks = await taskModel.getTasks();
-    res.json(tasks);
+
+    const result = tasks.map((task) => ({
+      id: task.id,
+      task: task.task,
+      status: task.status,
+      creation_time: DateUtils.convertDate(task.creation_time),
+    }));
+
+    res.json(result);
   } catch (err) {
     console.log(err);
     next(ResponseError.generateExceptionError(err));
@@ -18,15 +27,18 @@ router.get("/", async (req, res, next) => {
 //POST /api/task/
 router.post("/", async (req, res, next) => {
   try {
+    if (req.body.creation_time) {
+      req.body.creation_time = DateUtils.formatDateToISO(
+        req.body.creation_time
+      );
+    }
     const validateValues = await taskValidation.validateAddTaskSchema(req.body);
 
-    console.log(validateValues.task);
-    const task = { task: validateValues.task };
-
-    await taskModel.insertTask(task);
+    await taskModel.insertTask(validateValues);
 
     res.status(200).json({ message: "Task has been added" });
   } catch (err) {
+    console.log(err);
     next(ResponseError.generateExceptionError(err));
   }
 });

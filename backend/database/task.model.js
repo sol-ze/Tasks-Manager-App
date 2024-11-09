@@ -2,7 +2,7 @@ const knex = require("./DBConnection");
 
 //get all tasks
 const getTasks = () => {
-  return knex.select("id", "task", "status", "creation_time").from("task");
+  return knex.select("id", "task", "creation_time").from("task");
 };
 
 const insertTask = (task) => {
