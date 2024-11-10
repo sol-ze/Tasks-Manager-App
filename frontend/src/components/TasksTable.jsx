@@ -23,7 +23,7 @@ const TasksTable = ({ tasks, handleDelete }) => {
               <td>
                 <Button
                   btnOption="danger"
-                  key={Date.now()}
+                  key={task.id}
                   onClick={() => handleDelete(task.id)}
                 >
                   Delete
