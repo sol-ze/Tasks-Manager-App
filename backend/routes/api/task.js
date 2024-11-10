@@ -4,6 +4,7 @@ const DateUtils = require("../../utils/DateUtils");
 const taskModel = require("../../database/task.model");
 const ResponseError = require("../../utils//RsponseError");
 const taskValidation = require("../../validation/task.validation");
+const ErrorTypes = require("../../utils/ErrorTypes");
 
 //GET/api/task/
 router.get("/", async (req, res, next) => {
@@ -20,7 +21,7 @@ router.get("/", async (req, res, next) => {
     res.json(result);
   } catch (err) {
     console.log(err);
-    next(ResponseError.generateExceptionError(err));
+    next(ResponseError.generateExceptionError(ErrorTypes.ERR500));
   }
 });
 
@@ -39,7 +40,7 @@ router.post("/", async (req, res, next) => {
     res.status(200).json({ message: "Task has been added" });
   } catch (err) {
     console.log(err);
-    next(ResponseError.generateExceptionError(err));
+    next(ResponseError.generateExceptionError(ErrorTypes.ERR500));
   }
 });
 
@@ -53,7 +54,8 @@ router.delete("/:id", async (req, res, next) => {
 
     res.status(200).json({ message: "Task has been deleted" });
   } catch (err) {
-    next(ResponseError.generateExceptionError(err));
+    console.log(err);
+    next(ResponseError.generateExceptionError(ErrorTypes.ERR500));
   }
 });
 

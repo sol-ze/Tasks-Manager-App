@@ -8,7 +8,7 @@ class ResponseError extends Error {
 
   static generateExceptionError(e) {
     e = e || ErrorTypes.ERR500;
-    const result = new ResponseError({ status: 500, message: e.toString() });
+    const result = new ResponseError({ status: 500, message: e.message });
     return result;
   }
 }
